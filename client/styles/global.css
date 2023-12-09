@@ -1,0 +1,62 @@
+html,
+body,
+#app {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+a[href] {
+  color: #6cf;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: var(--primary-color, #00e);
+  }
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &:active {
+    background-color: #dddd;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: #dddd;
+    }
+  }
+}
+
+input {
+  background-color: #ddd7;
+  border: none;
+  padding: 6px;
+  font-size: 14px;
+
+  &:focus-visible {
+    outline: none;
+  }
+}

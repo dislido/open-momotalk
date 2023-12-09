@@ -1,0 +1,37 @@
+.dl-user-dialog {
+  --dialog-title-color: #8c5;
+
+  &::part(content) {
+    width: 258px;
+    overflow: hidden;
+  }
+
+  .content {
+    .item:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    .avatar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+
+      > img {
+        border: 2px #ddd solid;
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+      }
+    }
+
+    .user-dialog-button {
+      outline: 1px #ddd dashed;
+      outline-offset: -0.5px;
+      padding: 4px 12px;
+    }
+
+    .operations {
+      margin-top: 8px;
+    }
+  }
+}

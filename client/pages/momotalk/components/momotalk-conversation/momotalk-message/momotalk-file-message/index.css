@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.file-mime {
+  font-size: 14px;
+  color: #fff7;
+}
+
+.download-btn {
+  flex-shrink: 0;
+  margin-left: 17px;
+  font-size: 14px;
+  color: #000;
+}
+
+.progress {
+  font-size: 12px;
+}
+
+.tmp-link {
+  display: none;
+}

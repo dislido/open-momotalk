@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "incremental": true,
+  },
+  "ts-node": {
+    "files": true,
+    "esm": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "client",
+    "node_modules",
+    "scripts/worker"
+  ]
+}

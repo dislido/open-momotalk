@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "lib": ["WebWorker", "ESNext"],
+    "skipLibCheck": true,
+    "strict": true,
+    "alwaysStrict": false,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "incremental": false,
+  },
+  "includes": ["."]
+}

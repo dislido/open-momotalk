@@ -1,0 +1,103 @@
+:root {
+  --color-momotalk-pink: #fb91a5;
+  --color-momotalk-pink-dark: #e6758a;
+}
+
+#app {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+html {
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.momotalk-main {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.momotalk-menu {
+  width: 420px;
+  flex-basis: 420px;
+  flex-shrink: 0;
+  display: flex;
+  z-index: 1;
+}
+
+#search-group {
+  width: 20px;
+}
+
+#left-list {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-left: 60px;
+  margin-left: -60px;
+  box-shadow: #b7b7b7 0 1px 2px 1px;
+  background-color: #f3f7f8;
+  overflow: hidden;
+}
+
+.conversation-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .conversation-list-header {
+    display: flex;
+    height: 45px;
+    box-sizing: border-box;
+    margin: 0 8px;
+    border-bottom: #dfe3e5 1px solid;
+    padding-left: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f444a;
+    justify-content: space-between;
+    align-items: center;
+    translate: 0 8px;
+    transition: translate 0.3s linear;
+    transition-delay: 0.2s;
+    flex-shrink: 0;
+  }
+
+  .conversation-list-items {
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+}
+
+#app[ready] {
+  .conversation-list-header {
+    translate: 0;
+  }
+
+  #left-tabs {
+    --width: 60px;
+    --margin-right: 0;
+    --tab-opacity: 1;
+  }
+}
+
+.pwawnd momotalk-titlebar {
+  padding-left: 88px;
+}

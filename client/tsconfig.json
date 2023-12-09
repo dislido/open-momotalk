@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "experimentalDecorators": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "strictFunctionTypes": false, // fix addEventListener CustomEvent
+    "moduleResolution": "bundler",
+    "incremental": true,
+    "paths": {
+      "@/common/*": ["./common/*"],
+      "@/components/*": ["./components/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/shared/*": ["../shared/*"],
+    },
+  },
+  "include": [
+    "**/*.ts",
+    "../pwaManifest.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./worker"
+  ]
+}

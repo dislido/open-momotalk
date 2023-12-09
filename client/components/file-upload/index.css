@@ -1,0 +1,19 @@
+:host {
+  display: inline-block;
+}
+
+.default-upload-btn {
+  border: 1px solid #ddd;
+  border-radius: 0;
+  background-color: #fff;
+
+  &:active {
+    background-color: #ddd;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}

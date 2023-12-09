@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.editor {
+  outline: none;
+  position: relative;
+  white-space: pre-wrap;
+}
+
+.editor img {
+  max-width: 100%;
+}
+
+editor-segment {
+  display: inline-block;
+  margin: 0 2px;
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+
+  .seg-img,
+  .seg-video {
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 1em;
+    min-height: 1em;
+  }
+
+  .seg-file {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #4a89c8;
+    text-align: left;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+
+    .file-mime {
+      font-size: 14px;
+      color: #fff7;
+    }
+  }
+}

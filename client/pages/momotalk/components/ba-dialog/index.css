@@ -1,0 +1,37 @@
+@keyframes ba-dialog-fade {
+  0% {
+    top: 100%;
+    transform: translateY(0);
+  }
+
+  100% {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.ba-dialog {
+  --dialog-background: transparent;
+
+  &::part(content) {
+    animation-name: none;
+    overflow: visible;
+    height: 100%;
+    max-height: 100dvh;
+    position: relative;
+  }
+
+  .ba-dialog-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.opening .ba-dialog-container {
+    animation: ba-dialog-fade 200ms linear;
+  }
+
+  &.closing {
+    display: none;
+  }
+}

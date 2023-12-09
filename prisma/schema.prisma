@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model user {
+  id        Int      @id @unique(map: "id") @default(autoincrement()) @db.UnsignedInt
+  username  String   @unique(map: "username") @db.Char(32)
+  password  String   @db.Char(64)
+  nickname  String   @default("") @db.Char(32)
+  createdAt DateTime @default(now())
+  // @init 改成默认头像的地址
+  avatar    String   @default("https://oss.xxx.com/user/avatar/$default.png") @db.Char(255)
+
+  momoGroups    momoGroup[]
+  momoGroupMsgs momoGroupMsg[]
+  acl           aclRelation[]
+}
+
+model momoGroup {
+  id        Int      @id @unique(map: "id") @default(autoincrement()) @db.UnsignedInt
+  gid       String   @unique(map: "gid") @db.Char(32)
+  name      String   @db.Char(32)
+  createdAt DateTime @default(now())
+  // @init 改成默认头像的地址
+  avatar    String   @default("https://oss.xxx.com/user/avatar/$default.png") @db.Char(255)
+
+  members  user[]
+  messages momoGroupMsg[]
+}
+
+model momoGroupMsg {
+  id        Int       @id @unique(map: "id") @default(autoincrement()) @db.UnsignedInt
+  createdAt DateTime  @default(now())
+  senderId  Int       @db.UnsignedInt
+  gid       String    @db.Char(32)
+  content   String    @db.VarChar(10000)
+  sender    user      @relation(fields: [senderId], references: [id])
+  group     momoGroup @relation(fields: [gid], references: [gid])
+}
+
+model acl {
+  id        Int    @id @unique(map: "id") @default(autoincrement()) @db.UnsignedInt
+  namespace String @db.Char(64)
+  key       String @db.Char(64)
+
+  aclRelation aclRelation[]
+
+  @@unique([namespace, key])
+}
+
+model aclRelation {
+  id     Int    @id @unique(map: "id") @default(autoincrement()) @db.UnsignedInt
+  aclId  Int    @db.UnsignedInt
+  userId Int    @db.UnsignedInt
+  nsId   String @db.Char(64)
+  acl    acl    @relation(fields: [aclId], references: [id])
+  user   user   @relation(fields: [userId], references: [id])
+}

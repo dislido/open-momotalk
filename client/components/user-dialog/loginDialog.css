@@ -1,0 +1,122 @@
+.dl-login-dialog {
+  &::part(content) {
+    width: 258px;
+    overflow: hidden;
+  }
+
+  .title {
+    display: flex;
+    color: #fff;
+    padding: 0;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .title-login,
+  .title-register {
+    padding: 8px;
+    text-align: center;
+    transition: flex-grow 0.3s ease-out;
+    cursor: pointer;
+  }
+
+  .title-login {
+    background-color: #6cf;
+  }
+
+  .title-register {
+    background-color: #f96;
+  }
+
+  .content {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    transition: translate 0.3s ease-out, height 0.3s ease-out;
+    padding: 0;
+
+    > form {
+      width: 100%;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      padding: 8px 16px 0;
+      text-align: center;
+
+      > label {
+        display: flex;
+
+        > input {
+          width: 100%;
+        }
+
+        + label {
+          margin-top: 16px;
+        }
+
+        .label-name {
+          flex-basis: 60px;
+          width: 60px;
+          flex-shrink: 0;
+          white-space: nowrap;
+          text-align: right;
+          margin-right: 8px;
+          line-height: 28px;
+        }
+      }
+
+      .form-desc {
+        font-size: 12px;
+        padding-left: 68px;
+        margin: 4px 0;
+        text-align: left;
+        color: #777;
+      }
+    }
+  }
+
+  &[data-type='login'] {
+    .title {
+      .title-login {
+        flex-grow: 1;
+        cursor: default;
+        -webkit-app-region: drag;
+      }
+
+      .title-register {
+        -webkit-app-region: no-drag;
+      }
+    }
+
+    .content {
+      translate: 0;
+      height: 80px;
+    }
+
+    .footer button[form='register-form'] {
+      display: none;
+    }
+  }
+
+  &[data-type='register'] {
+    .title {
+      .title-login {
+        -webkit-app-region: no-drag;
+      }
+
+      .title-register {
+        flex-grow: 1;
+        cursor: default;
+        -webkit-app-region: drag;
+      }
+    }
+
+    .content {
+      translate: -100%;
+      height: 124px;
+    }
+
+    .footer button[form='login-form'] {
+      display: none;
+    }
+  }
+}

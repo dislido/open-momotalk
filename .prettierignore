@@ -1,0 +1,6 @@
+**/*.md
+**/*.svg
+.build
+.husky
+.git
+node_modules

@@ -1,0 +1,171 @@
+@keyframes mask-open {
+  0% {
+    background-color: #0000;
+  }
+
+  100% {
+    background-color: #000000b3;
+  }
+}
+
+.dialog-root {
+  width: 100dvw;
+  height: 100dvh;
+  z-index: var(--dialog-z-index, 1000);
+  position: fixed;
+  display: flex;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+
+  .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b3;
+    pointer-events: all;
+    animation: mask-open var(--animation-duration, 200ms) linear forwards;
+  }
+
+  .content-container {
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow: hidden;
+    background: var(--dialog-background, #fff);
+    transition: transform var(--animation-duration, 200ms) ease-out;
+    z-index: 1;
+    animation-duration: var(--animation-duration, 200ms);
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+  }
+}
+
+:host([open]) .dialog-root .content-container {
+  pointer-events: all;
+}
+
+@keyframes dialog-center-open {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+:host([type='center']) .dialog-root {
+  justify-content: center;
+  align-items: center;
+
+  .content-container {
+    max-height: 80dvh;
+    width: var(--width, auto);
+    border-radius: 6px;
+    transform-origin: var(--transform-origin, 50% 50%);
+    animation-name: dialog-center-open;
+  }
+}
+
+@keyframes dialog-bottom-open {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+:host([type='bottom']) .dialog-root {
+  align-items: end;
+
+  .content-container {
+    max-height: 80dvh;
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+    animation-name: dialog-bottom-open;
+  }
+}
+
+@keyframes dialog-top-open {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+:host([type='top']) .dialog-root {
+  align-items: flex-start;
+
+  .content-container {
+    max-height: 80dvh;
+    width: 100%;
+    border-radius: 0 0 6px 6px;
+    animation-name: dialog-top-open;
+  }
+}
+
+@keyframes dialog-left-open {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+:host([type='left']) .dialog-root {
+  justify-content: left;
+
+  .content-container {
+    max-width: 80dvw;
+    height: 100%;
+    animation-name: dialog-left-open;
+  }
+}
+
+@keyframes dialog-right-open {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+:host([type='right']) .dialog-root {
+  justify-content: right;
+
+  .content-container {
+    max-width: 80dvw;
+    height: 100%;
+    animation-name: dialog-right-open;
+  }
+}
+
+:host([mask='false']) .dialog-root .mask {
+  display: none;
+}
+
+:host(:not(.opening, .closing)) .dialog-root {
+  .mask,
+  .content-container {
+    animation-name: none;
+  }
+}
+
+:host(.closing) .dialog-root {
+  .mask,
+  .content-container {
+    animation-direction: alternate-reverse;
+  }
+}

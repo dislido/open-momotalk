@@ -1,0 +1,10 @@
+.message-log-dialog {
+  --dialog-z-index: 6000;
+}
+
+.message-log-dialog::part(content) {
+  height: fit-content;
+  margin-top: 40px;
+  overflow: visible;
+  background: transparent;
+}

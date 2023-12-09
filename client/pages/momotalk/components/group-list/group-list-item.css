@@ -1,0 +1,58 @@
+:host {
+  display: flex;
+  border-bottom: #ecf0f1 1px solid;
+  padding: 8px 12px;
+  height: 62px;
+  align-items: center;
+}
+
+:host(.active) {
+  background-color: #dae5e9;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  margin-right: 6px;
+  border-radius: 22.5px;
+  -webkit-user-drag: none;
+}
+
+.content {
+  flex-grow: 1;
+  width: 0;
+}
+
+.title {
+  color: #3f444a;
+  font-weight: 500;
+  min-height: 22.5px;
+}
+
+.message {
+  color: #71777d;
+  min-height: 20px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.unread {
+  padding: 4px 6px;
+  line-height: 14px;
+  border-radius: 2px;
+  color: white;
+  background-color: #ff450e;
+  font-size: 14px;
+  font-weight: 500;
+
+  &::after {
+    content: attr(data-unread);
+  }
+
+  &[data-unread='0'],
+  &:not([data-unread]) {
+    display: none;
+  }
+}

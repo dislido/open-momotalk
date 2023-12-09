@@ -1,0 +1,86 @@
+:host {
+  display: flex;
+  height: 100%;
+  transition: height 0.35s ease-in;
+  transition-delay: 0.35s;
+  z-index: 1000;
+  background-color: #fb91a5;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* 仅CH使用 */
+:host-context(#app[ready]) {
+  -webkit-app-region: drag;
+}
+
+img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.titlebar-login {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .momotalk-icon {
+    margin: 0 auto 16px;
+    display: block;
+    width: 98px;
+  }
+
+  .momotalk-text {
+    width: 240px;
+  }
+}
+
+.titlebar-title {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  padding: 0 12px;
+  align-items: center;
+  position: relative;
+  top: 8px;
+
+  .momotalk-icon {
+    display: block;
+    height: 16px;
+  }
+
+  .momotalk-text {
+    height: 16px;
+    margin-left: 4px;
+  }
+
+  .close-icon {
+    margin-left: auto;
+    height: 20px;
+    -webkit-app-region: no-drag;
+  }
+}
+
+.momotalk-doc-btn {
+  display: none;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  background-color: #fff;
+  color: #fb91a5;
+  border-radius: 4px;
+  box-shadow: #6666 0 2px 2px;
+  text-align: center;
+  line-height: 18px;
+  font-weight: bold;
+}
+
+.titlebar-title .momotalk-doc-btn {
+  display: inline-block;
+  -webkit-app-region: no-drag;
+}

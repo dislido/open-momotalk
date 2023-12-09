@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="background: #fb91a5">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#fb91a5">
+    <title>桃信</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/assets/momotalk/momotalk-icon-bg.svg">
+    <!-- renderSlot:head -->
+    <script type="module" src="./index.ts"></script>
+    <link rel="manifest" href="/static/momotalk.webmanifest" />
+    <style>body:not(.loaded){display: none}</style>
+    <script>window.addEventListener('load',()=>{document.body.classList.toggle('loaded',true)},{once:true})</script>
+  </head>
+  <body>
+    <div id="app">
+      <momotalk-titlebar id="titlebar"></momotalk-titlebar>
+      <main class="momotalk-main">
+        <div class="momotalk-menu">
+          <left-tabs id="left-tabs"></left-tabs>
+          <div id="left-list">
+            <div class="conversation-list">
+              <div class="conversation-list-header">
+                <div>未读信息</div>
+                <div class="conversation-list-operations">
+                  <ba-button id="search-group">➕</ba-button>
+                </div>
+              </div>
+              <group-list></group-list>
+            </div>
+            <member-list></member-list>
+          </div>
+        </div>
+        <momotalk-conversation></momotalk-conversation>
+      </main>
+    </div>
+    <!-- renderSlot:body -->
+  </body>
+</html>

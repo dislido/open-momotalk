@@ -1,0 +1,50 @@
+.dl-dialog {
+  .title {
+    color: #fff;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 8px;
+    text-align: center;
+    transition: flex-grow 0.3s ease-out;
+    background-color: var(--dialog-title-color, #008fd6);
+  }
+
+  .content {
+    width: 100%;
+    padding: 8px 8px 0;
+    box-sizing: border-box;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 8px;
+    display: flex;
+    border-top: 1px solid #dddd;
+
+    > button {
+      width: 0;
+      flex-grow: 1;
+      padding: 0.6em 0;
+      transition: flex-grow 150ms linear;
+      white-space: nowrap;
+
+      &:active {
+        flex-grow: 1.4;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          flex-grow: 1.4;
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid #dddd;
+      }
+    }
+  }
+}
+
+.dl-dialog-confirm .content {
+  min-width: 200px;
+}

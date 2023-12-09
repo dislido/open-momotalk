@@ -1,0 +1,33 @@
+:host {
+  display: inline-flex;
+  position: relative;
+  transition: scale 100ms linear;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.button-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: #dddd -1px 2px 1px;
+  transform: skewX(-8deg);
+}
+
+slot {
+  display: inline;
+  position: relative;
+  z-index: 1;
+  line-height: 20px;
+}
+
+:host(:active) {
+  scale: 0.9;
+}
