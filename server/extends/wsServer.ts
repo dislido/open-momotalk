@@ -1,4 +1,4 @@
-import type { Server } from 'node:http';
+import type { Server } from 'node:net';
 
 import { WebSocketServer } from 'ws';
 

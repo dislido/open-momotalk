@@ -1,6 +1,9 @@
 import http from 'node:http';
+import http2 from 'node:http2';
+import type { Server } from 'node:net';
 import path from 'node:path';
 
+import fs from 'fs/promises';
 import Koa from 'koa';
 import koaMount from 'koa-mount';
 import koaStatic from 'koa-static';
@@ -76,7 +79,13 @@ app.use(
 app.use(errorHandlerMiddleware);
 app.use(router.routes()).use(router.allowedMethods());
 
-const server = http.createServer(app.callback());
+let server: Server;
+if (app.config.cert) {
+  const [key, cert] = await Promise.all([fs.readFile(app.config.cert.key), fs.readFile(app.config.cert.cert)]);
+  server = http2.createSecureServer({ key, cert });
+} else {
+  server = http.createServer(app.callback());
+}
 withWsServer(server);
 
 server.listen(Number(app.config.PORT), '0.0.0.0', () => {

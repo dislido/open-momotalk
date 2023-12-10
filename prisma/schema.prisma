@@ -4,7 +4,8 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  // @init 数据库连接地址 或者改成`env("DATABASE_URL")`从环境变量里取
+  url      = "mysql://username:password@xxx.com:3306/momotalk"
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments

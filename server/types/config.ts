@@ -25,12 +25,17 @@ export interface MomotalkServerConfig {
     accessKeySecret: string;
   };
 
-  /** jwt的盐,修改它会使所有jwt失效 */
+  /** jwt的盐,修改它会使所有用户账号失效 */
   readonly BCRYPT_SALT?: string;
 
   readonly onNotFound?: (ctx: DefaultContext) => void | Promise<void>;
 
   readonly [key: string]: any;
+
+  readonly cert?: {
+    key: string;
+    cert: string;
+  };
 }
 /** 应用配置 */
 export interface MomotalkServerOptions {

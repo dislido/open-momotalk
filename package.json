@@ -16,7 +16,8 @@
     "prettier": "prettier --write \"{server,client}/**/*.{ts,json}\"",
     "restart": "npm i --omit=dev && npm run build && pm2 restart momotalk",
     "start": "pm2 start server/index.js --name momotalk",
-    "stop": "pm2 delete momotalk"
+    "stop": "pm2 delete momotalk",
+    "postinstall": "prisma generate"
   },
   "author": "",
   "license": "ISC",

@@ -1,12 +1,9 @@
 # open-momotalk
 momotalk!
-__本项目是从dislido.cn独立出来的项目,目前没有进行过独立部署测试,大概率会遗漏某些东西导致无法成功部署__
+__本项目是从dislido.cn独立出来的项目,目前没有进行过独立部署测试,可能遗漏某些东西导致无法成功部署__
 
 ## 部署
 需要准备:
-- 阿里云服务器ECS 参考配置:
-  - CPU&内存 1核(vCPU) 2 GiB (如果你不在服务器上编译可以用1G内存)
-  - Alibaba Cloud Linux 3.2104 LTS 64位
 - 阿里云OSS
   - 在bucket的 数据安全-跨域设置 中添加跨域规则:
     ```
@@ -21,25 +18,29 @@ __本项目是从dislido.cn独立出来的项目,目前没有进行过独立部�
       x-oss-request-id
       ETag
     ```
-- https
 - 数据库, 默认使用mysql, 可以根据需要改用其他数据库
-- nginx 配置文件参考`scripts/nginx.conf`
+- 服务器参考配置:
+  - CPU&内存 1核(vCPU) 2 GiB (如果你不在服务器上编译可以用1G内存)
+  - Alibaba Cloud Linux 3.2104 LTS 64位
 
 ### 项目配置
-在项目中全局搜索`@init`
+在项目中全局搜索`@init`,安装提示信息进行配置
+
+### 本地开发
+`npm run dev`
 
 ### 初次启动
 初始化数据库 `npx prisma migrate dev --name init`
 
+### 在服务器上部署
 ```bash
 git clone git@github.com:dislido/open-momotalk.git
 cd open-momotalk
 npm i
-npx prisma generate
 npm run deploy
 ```
 
-### 更新重启
+### 更新并重启
 ```bash
 cd open-momotalk
 git pull
