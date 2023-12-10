@@ -1,7 +1,7 @@
 {
   "name": "open-momotalk",
   "version": "1.0.0",
-  "description": "",
+  "description": "momotalk",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -19,7 +19,7 @@
     "stop": "pm2 delete momotalk",
     "postinstall": "prisma generate"
   },
-  "author": "",
+  "author": "DisLido",
   "license": "ISC",
   "dependencies": {
     "@koa/router": "^12.0.0",
