@@ -125,7 +125,7 @@ export function defineApi<P extends string | object | FormData | void = void, R 
       if (response.status === 403 && options?.autoLogin !== false) {
         openUserDialog();
       }
-      throw new Error('api error', { cause: data });
+      throw new Error(`api error: ${data.message}`, { cause: data });
     }
     return data.data as R;
   };

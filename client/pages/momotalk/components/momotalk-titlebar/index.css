@@ -52,6 +52,7 @@ img {
   .momotalk-icon {
     display: block;
     height: 16px;
+    -webkit-app-region: no-drag;
   }
 
   .momotalk-text {

@@ -14,7 +14,7 @@ export function getDirname(importMetaUrl: string, ...to: string[]) {
   return to.length > 0 ? resolve(dir, ...to) : dir;
 }
 
-const cacheRequests = ['/', '/momotalk', '/static/momotalk.webmanifest'];
+const cacheRequests = ['/momotalk', '/static/momotalk.webmanifest'];
 
 const buildResult = await build(
   mergeConfig(viteConfig, {

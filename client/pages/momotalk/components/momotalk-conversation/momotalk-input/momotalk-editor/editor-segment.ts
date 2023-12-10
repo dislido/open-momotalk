@@ -117,7 +117,7 @@ export class EditorSegmentElement extends HTMLElement {
       const items = uploads.get('items');
       uploads.set('items', items.concat([progressData]));
 
-      let fileMeta: ISegmentFileMeta;
+      let fileMeta: ISegmentFileMeta | undefined;
       const extraFormData: Record<string, string> = {};
       if (this.#fileMeta) {
         fileMeta = await this.#fileMeta;
@@ -145,7 +145,7 @@ export class EditorSegmentElement extends HTMLElement {
             mime: f.type,
             size: f.size,
           };
-          if (fileMeta.segmentMeta) seg.meta = fileMeta.segmentMeta;
+          if (fileMeta?.segmentMeta) seg.meta = fileMeta.segmentMeta;
           return seg;
         })
         .catch((err) => {
