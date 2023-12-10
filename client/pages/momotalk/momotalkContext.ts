@@ -1,3 +1,4 @@
+import { globalContext } from '@/common/globalContext';
 import { getUserAcl } from '@/common/user';
 import { type IMomotalkMsg, MomotalkWsResType } from '@/shared/types/momotalk';
 import { ObservableObject } from '@/utils/context';
@@ -70,8 +71,11 @@ momotalkContext.watch('groupList', (groupList) => {
   });
 });
 
-getUserAcl({ ns: 'momotalk.admin' }).then((acl) => {
-  momotalkContext.set('acl', acl);
+globalContext.watch('user', (user) => {
+  if (!user) return;
+  getUserAcl({ ns: 'momotalk.admin' }).then((acl) => {
+    momotalkContext.set('acl', acl);
+  });
 });
 
 let groupAclAc: AbortController | undefined;

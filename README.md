@@ -47,7 +47,11 @@ git pull
 npm run restart
 ```
 
-## 如何建群
+### 其他问题
+- 本地开发页面报momotalk.webmanifest 404: 执行`npm run build&&npm run clean`
+
+## 使用
+### 如何建群
 因为权限系统没完成,目前没在页面中添加此功能, 可以`npx prisma studio` 直接在数据库里添加,
 或者使用`server/services/momotalk/group.ts`中的`createGroup`自行实现
 

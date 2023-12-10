@@ -99,6 +99,7 @@ export function openUserInfoDialog() {
                   onConfirm: () => {
                     localStorage.removeItem('jwt');
                     globalContext.set('user', undefined);
+                    userDialog.dispatchEvent(new CustomEvent('logout'));
                     userDialog.close();
                     showMessage('已退出登录');
                   },

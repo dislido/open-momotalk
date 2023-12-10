@@ -137,7 +137,10 @@ export class MomotalkTitlebarElement extends HTMLElement {
     await sleep(200);
     fadeoutAnimateEv.target.cancel();
     this.#content.animate([{ top: '8px' }, { top: 0 }], { duration: 300, fill: 'forwards' });
-    this.#momotalkIcon.addEventListener('click', openUserDialog);
+    this.#momotalkIcon.addEventListener('click', () => {
+      const userDialog = openUserDialog();
+      userDialog.addEventListener('logout', () => location.reload());
+    });
   }
 }
 
